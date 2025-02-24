@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Models\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doctor.Data\Doctor.Data.csproj" />
+  </ItemGroup>
+
+</Project>
