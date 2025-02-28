@@ -8,17 +8,26 @@
 
   <ItemGroup>
     <Compile Remove="Extensions\**" />
-    <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />
-    <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Extensions\**" />
-    <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="Models\**" />
-    <EmbeddedResource Remove="Services\**" />
     <None Remove="Extensions\**" />
-    <None Remove="Interfaces\**" />
     <None Remove="Models\**" />
-    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\IAppointmentService.cs" />
+    <Compile Remove="Interfaces\IAuthService.cs" />
+    <Compile Remove="Interfaces\IReferenceService.cs" />
+    <Compile Remove="Interfaces\IUserService.cs" />
+    <Compile Remove="Services\AppointmentService.cs" />
+    <Compile Remove="Services\AuthService.cs" />
+    <Compile Remove="Services\ReferenceService.cs" />
+    <Compile Remove="Services\UserService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Extensions\RegexValidator.cs" />
   </ItemGroup>
 
   <ItemGroup>

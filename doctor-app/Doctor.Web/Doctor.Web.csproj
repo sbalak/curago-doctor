@@ -7,7 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Account\**" />
+    <Content Remove="Views\Account\**" />
+    <EmbeddedResource Remove="Views\Account\**" />
+    <None Remove="Views\Account\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doctor.Infrastructure\Doctor.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

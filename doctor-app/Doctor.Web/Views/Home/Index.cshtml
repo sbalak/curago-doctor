@@ -100,7 +100,6 @@
 						<img src="~/images/profile.png" height="60px" width="60px;" class="bd-placeholder-img flex-shrink-0 me-2 rounded" />
 						<p class="">
 							<span class="fw-semibold">&nbsp; Dr Yuvaraj Thiruvengadam</span><br />
-							<span class="fst-italic">&nbsp; MBBS, MS, Mch, FMAS, FACRSI</span><br />
 							<span class="fw-bolder">&nbsp; Chief Medical Resource Officer</span>
 						</p>
 					</div>
@@ -119,7 +118,7 @@
 						<img src="~/images/profile.png" height="60px" width="60px;" class="bd-placeholder-img flex-shrink-0 me-2 rounded" />
 						<p class="">
 							<span data-nosnippet class="fw-semibold">&nbsp; Sidharth Balakrishnan</span><br />
-							<span class="fw-bolder">&nbsp; Chief Executive Officer</span><br />
+							<span class="fw-bolder">&nbsp; Chief Technology Officer</span><br />
 						</p>
 					</div>
 				</div>
@@ -161,8 +160,15 @@
 
 	<div class="row g-5">
 		<div class="col-md-8">
-			<h2 class="text-body-emphasis outfit pb-3"><img src="~/images/interest.png" height="50px" width="50px"> Sign Up</h2>
-
+			<h2 id="signup" class="text-body-emphasis outfit pb-3"><img src="~/images/interest.png" height="50px" width="50px"> Sign Up</h2>
+			<div id="registerInterestSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Hey there!</strong> Thanks for registering your interest, we'll get back to you soon.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="registerInterestFailure" class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Error!</strong> Please make sure to enter your valid details.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
 			<div class="row mb-3 g-3">
 				<div class="col-md-6">
 					<label for="firstName" class="form-label">First Name</label>
@@ -173,9 +179,9 @@
 				</div>
 				<div class="col-md-6">
 					<label for="firstName" class="form-label">Last Name</label>
-					<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+					<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
 					<div class="invalid-feedback">
-						Valid first name is required.
+						Valid last name is required.
 					</div>
 				</div>
 			</div>
@@ -183,16 +189,16 @@
 			<div class="row mb-3 g-3">
 				<div class="col-md-6">
 					<label for="firstName" class="form-label">Phone Number</label>
-					<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+					<input type="text" class="form-control" id="phone" placeholder="" value="" required>
 					<div class="invalid-feedback">
-						Valid first name is required.
+						Valid phone is required.
 					</div>
 				</div>
 				<div class="col-md-6">
 					<label for="firstName" class="form-label">Email Address</label>
-					<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+					<input type="text" class="form-control" id="email" placeholder="" value="" required>
 					<div class="invalid-feedback">
-						Valid first name is required.
+						Valid email is required.
 					</div>
 				</div>
 			</div>
@@ -201,7 +207,7 @@
 				<div class="col-md-6">
 				</div>
 				<div class="col-md-6">
-					<button type="button" class="btn btn-success float-end"><i class="fa-solid fa-user-plus"></i> Register your Interest</button>
+					<button id="registerInterest" type="button" class="btn btn-success float-end"><i class="fa-solid fa-user-plus"></i> Register your Interest</button>
 				</div>
 			</div>
 

@@ -1,7 +1,15 @@
+using Doctor.Data;
+using Doctor.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DoctorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DoctorContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IStaffService, StaffService>();
 
 var app = builder.Build();
 
