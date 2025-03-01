@@ -12,7 +12,7 @@
         public string? LastName { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Gender { get; set; }
-        public decimal Fee { get; set; }
+        public decimal? Fee { get; set; }
         public int Experience { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
@@ -54,15 +54,5 @@
         public DateTime DateCreated { get; set; }
         public DateTime? DateVerified { get; set; }
         public Staff Staff { get; set; }
-    }
-
-    public class StaffInterest
-    {
-        public int Id { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public string? Email { get; set; }
-        public string? Phone { get; set; }
-        public DateTime DateCreated { get; set; }
     }
 }

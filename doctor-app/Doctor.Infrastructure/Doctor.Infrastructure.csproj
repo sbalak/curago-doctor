@@ -18,16 +18,17 @@
   <ItemGroup>
     <Compile Remove="Interfaces\IAppointmentService.cs" />
     <Compile Remove="Interfaces\IAuthService.cs" />
-    <Compile Remove="Interfaces\IReferenceService.cs" />
     <Compile Remove="Interfaces\IUserService.cs" />
     <Compile Remove="Services\AppointmentService.cs" />
     <Compile Remove="Services\AuthService.cs" />
-    <Compile Remove="Services\ReferenceService.cs" />
     <Compile Remove="Services\UserService.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Include="Extensions\RegexValidator.cs" />
+    <Compile Include="Models\SpecialityModel.cs" />
+    <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\SymptomModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

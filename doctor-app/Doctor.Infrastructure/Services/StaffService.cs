@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Doctor.Data;
 using System.Runtime.CompilerServices;
+using System.Numerics;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Doctor.Infrastructure
 {
@@ -13,32 +15,38 @@ namespace Doctor.Infrastructure
             _context = context;
         }
 
-        public async Task<bool> CreateInterest(string firstName, string lastName, string phone, string email)
+        public async Task<Staff?> Create(string firstName, string lastName, string phone, int experience, int primarySpecialityId, int? secondarySpecialityId = null)
         {
             try
             {
-                if (RegexValidator.IsValidPhone(phone) && RegexValidator.IsValidEmail(email))
+                var staff = new Staff();
+
+                if (RegexValidator.IsValidPhone(phone))
                 {
-                    StaffInterest staffInterest = new StaffInterest()
+                    var duplicate = await _context.Staffs.Where(x => x.Phone == phone).FirstOrDefaultAsync();
+
+                    if (duplicate == null)
                     {
-                        FirstName = firstName,
-                        LastName = lastName,
-                        Phone = phone,
-                        Email = email,
-                        DateCreated = DateTime.Now
-                    };
+                        staff.FirstName = firstName;
+                        staff.LastName = lastName;
+                        staff.Phone = phone;
+                        staff.Experience = experience;
+                        staff.PrimarySpecialityId = primarySpecialityId;
+                        staff.SecondarySpecialityId = secondarySpecialityId;
+                        staff.DateCreated = DateTime.Now;
 
-                    await _context.StaffInterests.AddAsync(staffInterest);
-                    await _context.SaveChangesAsync();
+                        await _context.Staffs.AddAsync(staff);
+                        await _context.SaveChangesAsync();
 
-                    return true;
+                        return staff;
+                    }
                 }
 
-                return false;
+                return null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                throw;
             }
         }
     }

@@ -12,15 +12,11 @@ namespace Doctor.Web.Controllers
             _staff = staff;
         }
 
-        //public IActionResult Register()
-        //{
-        //    return View();
-        //}
-
-        public async Task<JsonResult> RegisterInterest(string firstName, string lastName, string phone, string email)
+        [HttpPost]
+        public async Task<JsonResult> Register(string firstName, string lastName, string phone, int experience, int primarySpecialityId, int? secondarySpecialityId = null)
         {
-            var response = await _staff.CreateInterest(firstName, lastName, phone, email);
-            return Json(response);
+            var staff = await _staff.Create(firstName, lastName, phone, experience, primarySpecialityId, secondarySpecialityId);
+            return Json(staff == null ? false : true);
         } 
     }
 }

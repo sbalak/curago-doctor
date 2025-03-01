@@ -5,10 +5,10 @@
     $('#registerInterest').click(function () {
         $('#registerInterest').addClass('disabled');
         $.ajax({
-            url: '/account/registerinterest/',
-            type: 'GET',
+            url: '/account/register/',
+            type: 'POST',
             dataType: 'json',
-            data: { 'firstName': $("#firstName").val(), 'lastName': $("#lastName").val(), 'phone': $("#phone").val(), 'email': $("#email").val() },
+            data: { 'firstName': $("#firstName").val(), 'lastName': $("#lastName").val(), 'phone': $("#phone").val(), 'primarySpecialityId': $("#secondarySpecialityId").val(), 'secondarySpecialityId': $("#secondarySpecialityId").val(), 'experience': $("#experience").val() },
             success: function (result) {
                 if (result) {
                     $("#registerInterestSuccess").show();
@@ -16,7 +16,9 @@
                     $("#firstName").val('');
                     $("#lastName").val('');
                     $("#phone").val('');
-                    $("#email").val('');
+                    $("#primarySpecialityId").val('');
+                    $("#secondarySpecialityId").val('');
+                    $("#experience").val('');
 
                     setTimeout(() => {
                         $("#registerInterestSuccess").hide();

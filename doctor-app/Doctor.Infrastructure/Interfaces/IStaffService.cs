@@ -1,7 +1,9 @@
-﻿namespace Doctor.Infrastructure
+﻿using Doctor.Data;
+
+namespace Doctor.Infrastructure
 {
     public interface IStaffService
     {
-        Task<bool> CreateInterest(string firstName, string lastName, string phone, string email);
+        Task<Staff?> Create(string firstName, string lastName, string phone, int experience, int primarySpecialityId, int? secondarySpecialityId = null);
     }
 }

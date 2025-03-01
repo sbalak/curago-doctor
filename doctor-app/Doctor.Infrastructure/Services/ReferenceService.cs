@@ -12,17 +12,34 @@ namespace Doctor.Infrastructure
             _context = context;
         }
 
-        public async Task<List<SpecialityModel>> GetSpecialities()
+        public async Task<List<SpecialityModel>> GetPrimarySpecialities()
         {
             var specialities = await _context.Specialities
+                                             .Where(m => m.IsPrimary == true)
                                              .Select(m => new SpecialityModel
-                                                {
-                                                    Id = m.Id,
-                                                    Name = m.Name,
-                                                    CorrespondingRole = m.CorrespondingRole,
-                                                    Image = m.Image,
-                                                    Description = m.Description
-                                                })
+                                             {
+                                                 Id = m.Id,
+                                                 Name = m.Name,
+                                                 CorrespondingRole = m.CorrespondingRole,
+                                                 Image = m.Image,
+                                                 Description = m.Description
+                                             })
+                                             .ToListAsync();
+            return specialities;
+        }
+
+        public async Task<List<SpecialityModel>> GetSecondarySpecialities()
+        {
+            var specialities = await _context.Specialities
+                                             .Where(m => m.IsPrimary == false)
+                                             .Select(m => new SpecialityModel
+                                             {
+                                                 Id = m.Id,
+                                                 Name = m.Name,
+                                                 CorrespondingRole = m.CorrespondingRole,
+                                                 Image = m.Image,
+                                                 Description = m.Description
+                                             })
                                              .ToListAsync();
             return specialities;
         }
