@@ -16,7 +16,7 @@ namespace Doctor.Web.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.PrimarySpecialities = _reference.GetPrimarySpecialities().Result.Select(m => new SelectListItem { Value = m.Id.ToString(), Text = m.Name });
+            ViewBag.Specialities = _reference.GetSpecialities().Result.Select(m => new SelectListItem { Value = m.Id.ToString(), Text = m.Name });
 
             return View();
         }

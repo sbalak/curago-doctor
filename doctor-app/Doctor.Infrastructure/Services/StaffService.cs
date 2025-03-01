@@ -15,7 +15,7 @@ namespace Doctor.Infrastructure
             _context = context;
         }
 
-        public async Task<Staff?> Create(string firstName, string lastName, string phone, int experience, int primarySpecialityId, int? secondarySpecialityId = null)
+        public async Task<Staff?> Create(string firstName, string lastName, string phone, int experience, string postCode, string registerInterest, int specialityId)
         {
             try
             {
@@ -31,8 +31,9 @@ namespace Doctor.Infrastructure
                         staff.LastName = lastName;
                         staff.Phone = phone;
                         staff.Experience = experience;
-                        staff.PrimarySpecialityId = primarySpecialityId;
-                        staff.SecondarySpecialityId = secondarySpecialityId;
+                        staff.Postcode = postCode;
+                        staff.RegisterInterest = registerInterest;
+                        staff.PrimarySpecialityId = specialityId;
                         staff.DateCreated = DateTime.Now;
 
                         await _context.Staffs.AddAsync(staff);

@@ -4,8 +4,7 @@ namespace Doctor.Infrastructure
 {
     public interface IReferenceService
     {
-        Task<List<SpecialityModel>> GetPrimarySpecialities();
-        Task<List<SpecialityModel>> GetSecondarySpecialities();
+        Task<List<SpecialityModel>> GetSpecialities();
         Task<List<SymptomModel>> GetSymptoms();
     }
 }

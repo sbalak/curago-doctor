@@ -13,9 +13,9 @@ namespace Doctor.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> Register(string firstName, string lastName, string phone, int experience, int primarySpecialityId, int? secondarySpecialityId = null)
+        public async Task<JsonResult> Register(string firstName, string lastName, string phone, int experience, string postCode, string registerInterest, int specialityId)
         {
-            var staff = await _staff.Create(firstName, lastName, phone, experience, primarySpecialityId, secondarySpecialityId);
+            var staff = await _staff.Create(firstName, lastName, phone, experience, postCode, registerInterest, specialityId);
             return Json(staff == null ? false : true);
         } 
     }

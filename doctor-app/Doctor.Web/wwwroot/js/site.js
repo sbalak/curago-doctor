@@ -2,13 +2,13 @@
     $("#registerInterestSuccess").hide();
     $("#registerInterestFailure").hide();
 
-    $('#registerInterest').click(function () {
-        $('#registerInterest').addClass('disabled');
+    $('#signUpBtn').click(function () {
+        $('#signUpBtn').addClass('disabled');
         $.ajax({
             url: '/account/register/',
             type: 'POST',
             dataType: 'json',
-            data: { 'firstName': $("#firstName").val(), 'lastName': $("#lastName").val(), 'phone': $("#phone").val(), 'primarySpecialityId': $("#secondarySpecialityId").val(), 'secondarySpecialityId': $("#secondarySpecialityId").val(), 'experience': $("#experience").val() },
+            data: { 'firstName': $("#firstName").val(), 'lastName': $("#lastName").val(), 'phone': $("#phone").val(), 'specialityId': $("#specialityId").val(), 'postCode': $("#postCode").val(), 'experience': $("#experience").val(), 'registerInterest': $("#registerInterest").val() },
             success: function (result) {
                 if (result) {
                     $("#registerInterestSuccess").show();
@@ -16,15 +16,16 @@
                     $("#firstName").val('');
                     $("#lastName").val('');
                     $("#phone").val('');
-                    $("#primarySpecialityId").val('');
-                    $("#secondarySpecialityId").val('');
+                    $("#specialityId").val('');
+                    $("#postCode").val('');
                     $("#experience").val('');
+                    $("#registerInterest").val('');
 
                     setTimeout(() => {
                         $("#registerInterestSuccess").hide();
                     }, 5000);
 
-                    $('#registerInterest').removeClass('disabled');
+                    $('#signUpBtn').removeClass('disabled');
                 }
                 else {
                     $("#registerInterestFailure").show();
@@ -33,7 +34,7 @@
                         $("#registerInterestFailure").hide();
                     }, 5000);
 
-                    $('#registerInterest').removeClass('disabled');
+                    $('#signUpBtn').removeClass('disabled');
                 }
             },
             error: function (err) {
@@ -43,7 +44,7 @@
                     $("#registerInterestFailure").hide();
                 }, 5000);
 
-                $('#registerInterest').removeClass('disabled');
+                $('#signUpBtn').removeClass('disabled');
             }
         });
     });

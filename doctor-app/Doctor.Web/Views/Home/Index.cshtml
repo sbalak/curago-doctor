@@ -123,6 +123,72 @@
 
 	<hr class="col-12 col-md-12 pb-3">
 
+	<div class="row g-5" id="signup">
+		<div class="col-md-12">
+			<h2 class="text-body-emphasis outfit pb-3"><img src="~/images/interest.png" height="50px" width="50px"> Sign Up</h2>
+			<div id="registerInterestSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Hey there!</strong> Thanks for registering your interest, we'll get back to you soon.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="registerInterestFailure" class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Error!</strong> Please make sure to enter your valid details.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div class="row mb-3 g-3">
+				<div class="col-md-4">
+					<label for="firstName" class="form-label">First Name</label>
+					<input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
+				</div>
+				<div class="col-md-4">
+					<label for="lastName" class="form-label">Last Name</label>
+					<input type="text" class="form-control" id="lastName" placeholder="Doe" value="" required>
+				</div>
+				<div class="col-md-4">
+					<label for="phone" class="form-label">Phone Number</label>
+					<input type="text" class="form-control" id="phone" placeholder="9444XXXXXX" value="" required>
+				</div>
+			</div>
+
+			<div class="row mb-3 g-3">
+				<div class="col-md-4">
+					<label for="specialityId" class="form-label">Speciality</label>
+					<select id="specialityId" class="form-control" asp-items="@ViewBag.Specialities" required>
+						<option value="">Please Select</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<label for="experience" class="form-label">Experience</label>
+					<input type="text" class="form-control" id="experience" placeholder="5" value="" required>
+				</div>
+				<div class="col-md-4">
+					<label for="postCode" class="form-label">Post Code</label>
+					<input type="text" class="form-control" id="postCode" placeholder="600101" value="" required>
+				</div>
+			</div>
+
+			<div class="row mb-3 g-3">
+				<div class="col-md-4">
+					<label for="registerInterest" class="form-label">Are You Interested in Joining?</label>
+					<select id="registerInterest" class="form-control">
+						<option value="">Please Select</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+						<option value="maybe">Maybe</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<button id="signUpBtn" type="button" class="btn btn-success float-end"><i class="fa-solid fa-user-plus"></i> Register your Interest</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<hr class="col-12 col-md-12 pb-3">
+
 	<div class="row g-5">
 		<div class="col-md-12">
 			<h2 class="text-body-emphasis outfit pb-3"><img src="~/images/team.png" height="50px" width="50px"> Our Team</h2>
@@ -196,55 +262,4 @@
 
 	</div>
 
-	<hr class="col-12 col-md-12 pb-3">
-
-	<div class="row g-5">
-		<div class="col-md-12">
-			<h2 id="signup" class="text-body-emphasis outfit pb-3"><img src="~/images/interest.png" height="50px" width="50px"> Sign Up</h2>
-			<div id="registerInterestSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
-				<strong>Hey there!</strong> Thanks for registering your interest, we'll get back to you soon.
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-			<div id="registerInterestFailure" class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Error!</strong> Please make sure to enter your valid details.
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-			<div class="row mb-3 g-3">
-				<div class="col-md-4">
-					<label for="firstName" class="form-label">First Name</label>
-					<input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
-				</div>
-				<div class="col-md-4">
-					<label for="lastName" class="form-label">Last Name</label>
-					<input type="text" class="form-control" id="lastName" placeholder="Doe" value="" required>
-				</div>
-				<div class="col-md-4">
-					<label for="phone" class="form-label">Phone Number</label>
-					<input type="text" class="form-control" id="phone" placeholder="9444XXXXXX" value="" required>
-				</div>
-			</div>
-
-			<div class="row mb-3 g-3">
-				<div class="col-md-4">
-					<label for="primarySpeciality" class="form-label">Speciality</label>
-					<input type="text" class="form-control" id="primarySpecialityId" placeholder="General Physician" value="" required>
-				</div>
-				<div class="col-md-4">
-					<label for="secondarySpeciality" class="form-label">Super Speciality</label>
-					<input type="text" class="form-control" id="secondarySpecialityId" placeholder="Gastroenterologist" value="" required>
-				</div>
-				<div class="col-md-4">
-					<label for="experience" class="form-label">Experience</label>
-					<input type="text" class="form-control" id="experience" placeholder="5" value="" required>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-12">
-					<button id="registerInterest" type="button" class="btn btn-success float-end"><i class="fa-solid fa-user-plus"></i> Register your Interest</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
 </main>
