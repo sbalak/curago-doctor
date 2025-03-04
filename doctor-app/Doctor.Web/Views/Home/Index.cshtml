@@ -110,7 +110,7 @@
 			</p>
 			<h5 class="text-body-emphasis outfit pb-3">Why CuraGo?</h5>
 			<p>
-				<b>Built by Doctors for Doctors:</b> CuraGo was created by healthcare professionals who
+				<b>Built by Doctors for Doctors:</b> CuraGo is created by healthcare professionals who
 				understand your needs. We’ve designed a platform that puts you at the center, offering the
 				tools you need to maximize your income and career growth.
 			</p>
@@ -167,11 +167,9 @@
 		<div class="col-md-12">
 			<h2 class="text-body-emphasis outfit pb-3"><img src="~/images/interest.png" height="50px" width="50px"> Sign Up</h2>
 			<div id="registerInterestSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
-				<strong>Hey there!</strong> Thanks for registering your interest, we'll get back to you soon.
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 			<div id="registerInterestFailure" class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Error!</strong> Please make sure to enter all the input fields to complete your submission.
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 			<div class="row mb-3 g-3">
@@ -197,8 +195,13 @@
 					</select>
 				</div>
 				<div class="col-md-4">
-					<label for="experience" class="form-label">Experience</label>
-					<input type="number" min="0" max="40" class="form-control" id="experience" placeholder="" value="" autocomplete="off" required>
+					<label for="experience" class="form-label">Experience (in years)</label>
+					<select id="experience" class="form-control" required>
+						<option value="">Please Select</option>
+						@for (int i = 1; i <= 40; i++){
+							<option value="@i">@i</option>
+						}
+					</select>
 				</div>
 				<div class="col-md-4">
 					<label for="postCode" class="form-label">Post Code</label>

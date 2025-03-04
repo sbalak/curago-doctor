@@ -65,5 +65,22 @@ namespace Doctor.Infrastructure
                 return false;
             }
         }
+
+        public static bool IsValidPostcode(string postCode)
+        {
+            if (string.IsNullOrWhiteSpace(postCode))
+                return false;
+
+            try
+            {
+                return Regex.IsMatch(postCode,
+                    @"\b[123456789]\d{5}\b$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
     }
 }

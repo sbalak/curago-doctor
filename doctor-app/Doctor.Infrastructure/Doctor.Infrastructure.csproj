@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Compile Include="Extensions\RegexValidator.cs" />
+    <Compile Include="Models\HttpModel.cs" />
     <Compile Include="Models\SpecialityModel.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\SymptomModel.cs" />

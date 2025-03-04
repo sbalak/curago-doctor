@@ -10,8 +10,11 @@
             dataType: 'json',
             data: { 'firstName': $("#firstName").val(), 'lastName': $("#lastName").val(), 'phone': $("#phone").val(), 'specialityId': $("#specialityId").val(), 'postCode': $("#postCode").val(), 'experience': $("#experience").val(), 'registerInterest': $("#registerInterest").val() },
             success: function (result) {
-                if (result) {
+                if (result.status == "success") {
+                    $("#registerInterestFailure").hide();
+                    $("#registerInterestSuccess").html(result.message);
                     $("#registerInterestSuccess").show();
+
 
                     $("#firstName").val('');
                     $("#lastName").val('');
@@ -23,26 +26,30 @@
 
                     setTimeout(() => {
                         $("#registerInterestSuccess").hide();
-                    }, 5000);
+                    }, 7500);
 
                     $('#signUpBtn').removeClass('disabled');
                 }
-                else {
+                else if (result.status == "failure") {
+                    $("#registerInterestSuccess").hide();
+                    $("#registerInterestFailure").html(result.message);
                     $("#registerInterestFailure").show();
 
                     setTimeout(() => {
                         $("#registerInterestFailure").hide();
-                    }, 5000);
+                    }, 7500);
 
                     $('#signUpBtn').removeClass('disabled');
                 }
             },
             error: function (err) {
+                $("#registerInterestSuccess").hide();
+                $("#registerInterestFailure").html('Error! Something went wrong. Please try again later.');
                 $("#registerInterestFailure").show();
 
                 setTimeout(() => {
                     $("#registerInterestFailure").hide();
-                }, 5000);
+                }, 7500);
 
                 $('#signUpBtn').removeClass('disabled');
             }
